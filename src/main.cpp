@@ -69,6 +69,10 @@ void showBackMessage()
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("____Welcome back____");
+  lcd.setCursor(0, 1);
+  lcd.print("___Nguyen The Anh___");
+  lcd.setCursor(0, 2);
+  lcd.print("___Smart Home IOT___");
   delay(500);
   lcd.setCursor(6, 3);
   String message = "CT060202";
@@ -177,6 +181,20 @@ void safeUnlockedLogic()
 
   if (key == '*')
   {
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Enter new old:");
+    String oldPass = inputSecretCode(1);
+    bool unlockedSuccessfully = safeState.unlock(oldPass);
+    if (!unlockedSuccessfully)
+    {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Access denied");
+      firstTimePrintInUnlock = true;
+      delay(1000);
+      return; // Wait for 1 second before exiting the loop
+    }
     bool setNewPassSuccess = setNewCode();
     if (setNewPassSuccess)
     {
@@ -272,7 +290,7 @@ void safeLockedLogic()
 
 void setup()
 {
-  lcd.begin(16, 2);
+  lcd.begin(20, 4);
   Serial.begin(115200);
 
   // Initialize Devices and Pins
@@ -357,6 +375,7 @@ void handleRemote()
         break;
       char key = returnStringNumber(receiver.decodedIRData.command);
       length++;
+      lcd.setCursor(9 + length - 1, 0);
       if (key >= '0' && key <= '9')
       {
         lcd.print('*');
