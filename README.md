@@ -119,10 +119,10 @@ Xây dựng hệ thống smart home đơn giản với các chức năng:
 - Nhấn # để đóng cửa hoặc nhấn nút on/off trên remote để đóng cửa
 
 ### 4.4 🌡️ Cảm biến nhiệt độ và độ ẩm
-- Đo nhiệt độ và độ ẩm để hiển thị, có thể nhấn nút C trên remote để tắt chức năng này
+- Đo nhiệt độ và độ ẩm để hiển thị, có thể nhấn nút play/stop trên remote để tắt chức năng này
 
 ### 4.5 💡Bật đèn
-- Nhấn nút play/stop trên remote để bật tắt đèn
+- Nhấn nút C trên remote để bật tắt đèn
 
 
 ## 📊 5.  Kết luận và đánh giá
