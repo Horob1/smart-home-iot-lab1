@@ -183,7 +183,7 @@ void safeUnlockedLogic()
   {
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("Enter new old:");
+    lcd.print("Enter old code:");
     String oldPass = inputSecretCode(1);
     bool unlockedSuccessfully = safeState.unlock(oldPass);
     if (!unlockedSuccessfully)
